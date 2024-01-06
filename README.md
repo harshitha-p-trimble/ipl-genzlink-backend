@@ -1,1 +1,1 @@
-# ipl-genzlink-backend
+API Service for Platform Component based on NodeTs
