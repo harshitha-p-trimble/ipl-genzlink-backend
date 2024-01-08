@@ -15,3 +15,41 @@ const ForumSchema: Schema = new mongoose.Schema({
 
 
 export default mongoose.model<IForum>('Forum', ForumSchema);
+// import mongoose, { Schema } from 'mongoose';
+
+// const commentSchema = new mongoose.Schema({
+//   id: String,
+//   questionId: String,
+//   createdBy: String,
+//   lastModifiedBy: String,
+//   response: String,
+//   vote: String,
+// }, { timestamps: true }); 
+
+// const responseSchema = new mongoose.Schema({
+//   id: String,
+//   questionId: String,
+//   createdBy: String,
+//   lastModifiedBy: String,
+//   response: String,
+//   vote: String,
+//   comments: [commentSchema],
+// }, { timestamps: true }); 
+
+// const questionSchema = new mongoose.Schema({
+//   id: String,
+//   createdBy: String,
+//   lastModifiedBy: String,
+//   title: String,
+//   description: String,
+//   status: String,
+//   votes: Number,
+//   tags: [String],
+// }, { timestamps: true }); 
+
+// const ForumSchema = new mongoose.Schema({
+//   question: questionSchema,
+//   response: responseSchema,
+// }, { timestamps: true }); 
+
+// export default mongoose.model('Forum', ForumSchema);
