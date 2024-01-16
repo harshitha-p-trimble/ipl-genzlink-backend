@@ -12,9 +12,9 @@ export default class ForumService {
     async register(registrationDetails: IForum) {
         let [data, err] = await new ForumDAL().createForum(registrationDetails);
         if (data) {
-            this._httpResponse = this._responseBuilder.getResponse(200, { message: "Registration done successfully", data: data });
+            this._httpResponse = this._responseBuilder.getResponse(200, { message: "Fetched successfully", data: data });
         } else {
-            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in registration", data: err });
+            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in fetching data", data: err });
         }
         return this._httpResponse;
     }
@@ -22,9 +22,9 @@ export default class ForumService {
     async getForum() {
         let [data, err] = await new ForumDAL().getForum();
         if (data) {
-            this._httpResponse = this._responseBuilder.getResponse(200, { message: "Registration done successfully", data: data });
+            this._httpResponse = this._responseBuilder.getResponse(200, { message: "Fetched successfully", data: data });
         } else {
-            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in registration", data: err });
+            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in fetching data", data: err });
         }
         return this._httpResponse;
     }
