@@ -14,9 +14,6 @@ app.use(cors({ credentials: true, origin: ['http://127.0.0.1:5174', 'http://loca
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Passport Set-up
-// app.use(passport.initialize());
-// app.use(passport.session());
 
 app.use(errorMiddleware);
 

@@ -11,4 +11,8 @@ export default class ForumDal {
     async getUser() {
         return await promiseResolver(UserSchema.find({}));
     }
+
+    async createUser(userDetails: any) {
+        return await promiseResolver(UserSchema.create(userDetails));
+    }
 }

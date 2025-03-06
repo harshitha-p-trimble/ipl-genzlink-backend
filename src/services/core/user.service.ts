@@ -17,4 +17,14 @@ export default class ForumService {
         }
         return this._httpResponse;
     }
+
+    async createUser(userDetails: any) {
+        let [data, err] = await new UserDAL().createUser(userDetails);
+        if (data) {
+            this._httpResponse = this._responseBuilder.getResponse(200, { message: "User created successfully", data: data });
+        } else {
+            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in fetching", data: err });
+        }
+        return this._httpResponse;
+    }
 }
