@@ -14,14 +14,13 @@ const UserSchema: Schema = new mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type:String,
+        required: true
+    },
     skills: {
         type: [String],
         required: true
-    },
-    uniqueKey: {
-        type:String,
-        required: true,
-        unique: true
     }
 }, { versionKey: false });
 

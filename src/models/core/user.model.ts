@@ -1,7 +1,7 @@
 export interface IUser {
     firstName: string;
     lastName: string;
-    skills: [string];
+    email: String;
     designation: string;
-    uniqueKey: string;
+    skills: [string];
 }

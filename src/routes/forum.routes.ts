@@ -20,10 +20,6 @@ class ForumRouter {
         this._forumRouter.get('/',
             ForumController.getForum
         );
-
-        this._forumRouter.get('/user',
-            UserController.getUser
-        );
     }
 }
 
