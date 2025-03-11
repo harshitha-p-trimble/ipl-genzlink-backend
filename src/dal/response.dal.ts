@@ -17,4 +17,12 @@ export default class ResponseDal {
     async getAllResponses() {
         return await promiseResolver(responseSchema.find({}));  //doubt
     }
+
+    async getResponsesByQuestionId(questionId : String){
+        return await promiseResolver(responseSchema.find({questionId : questionId}));
+    }
+
+    async updateComment(responseId : String, updateComment : any){
+        return await promiseResolver(responseSchema.findByIdAndUpdate(responseId, { $push : { comments : { "userId" : updateComment.userId, "description" : updateComment.description, "votes" : updateComment.votes } } })) // $push
+    }
 }

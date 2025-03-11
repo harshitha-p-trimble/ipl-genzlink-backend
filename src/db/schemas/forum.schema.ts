@@ -33,6 +33,6 @@ const questionSchema = new mongoose.Schema({
 const ForumSchema = new mongoose.Schema({
   question: questionSchema,
   response: responseSchema,
-}, { timestamps: true });
+}, { timestamps: true, versionKey : false });
 
 export default mongoose.model('Forum', ForumSchema);

@@ -21,4 +21,20 @@ export default class QuestionDal {
     async getQuestionByUserId(userId : String){
         return await promiseResolver(questionSchema.find({userId : userId}));
     }
+    
+    async getQuestionByQuestionId(questionId : String){
+        return await promiseResolver(questionSchema.findById(questionId));
+    }
+
+    async getQuestionsForUserSkills(skills : [String]){
+        return await promiseResolver(questionSchema.find({ userTags : { $in :  skills} }));
+    }
+
+    async updateQuestion(questionId : String, questionDetails : any){
+        return await promiseResolver(questionSchema.findByIdAndUpdate(questionId, { $set: questionDetails }, { new: true }));
+    }
+
+    async updateQuestionResponses(questionId : String){
+        return await promiseResolver(questionSchema.findByIdAndUpdate(questionId, { $inc: {"responses" : 1} }, { new: true }));
+    }
 }

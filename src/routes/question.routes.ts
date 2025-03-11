@@ -21,6 +21,18 @@ class QuestionRouter {
         this._questionRouter.get('/userId',
             QuestionController.getQuestionByUserId
         );
+
+        this._questionRouter.get('/skills/',
+            QuestionController.getQuestionsForUserSkills
+        );
+
+        this._questionRouter.get('/:questionId',
+            QuestionController.getQuestionDetailsByQuestionId
+        );
+
+        this._questionRouter.put('/:questionId',
+            QuestionController.updateQuestion
+        );
     }
 }
 

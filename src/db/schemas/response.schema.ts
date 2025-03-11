@@ -8,8 +8,11 @@ const ResponseSchema = new mongoose.Schema({
   comments: [{
     userId: String,
     description: String,
-    votes: Number
+    votes: {
+      type: Number,
+      default: 0
+    },
   }],
-}, { timestamps: true }); // doubt
+}, { timestamps: true, versionKey : false }); // doubt
 
 export default mongoose.model('Response', ResponseSchema);

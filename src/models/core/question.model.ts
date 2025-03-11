@@ -6,4 +6,5 @@ export interface IQuestion {
     description: string;
     votes: number;
     status: string;
+    responses?: Number;
 }

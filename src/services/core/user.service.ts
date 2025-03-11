@@ -1,4 +1,5 @@
 import UserDAL from "../../dal/user.dal";
+import { IUser } from "../../models/core/user.model";
 import { IHttpResponse } from "../../models/http.models";
 import ResponseBuilder from "../../utils/responseHandling/responseBuilder.utils";
 
@@ -18,8 +19,18 @@ export default class ForumService {
         return this._httpResponse;
     }
 
-    async createUser(userDetails: any) {
+    async createUser(userDetails: IUser) {
         let [data, err] = await new UserDAL().createUser(userDetails);
+        if (data) {
+            this._httpResponse = this._responseBuilder.getResponse(200, { message: "User created successfully", data: data });
+        } else {
+            this._httpResponse = this._responseBuilder.getResponse(400, { message: "Error in fetching", data: err });
+        }
+        return this._httpResponse;
+    }
+    
+    async updateUser(userId: String, userDetails: any){
+        let [data, err] = await new UserDAL().updateUser(userId, userDetails);
         if (data) {
             this._httpResponse = this._responseBuilder.getResponse(200, { message: "User created successfully", data: data });
         } else {

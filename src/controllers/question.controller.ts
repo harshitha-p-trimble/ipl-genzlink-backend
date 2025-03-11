@@ -26,6 +26,23 @@ class QuestionController {
         this._httpResponse = await this._questionService.getQuestionByUserId(userId);
         return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
     }
+
+    getQuestionsForUserSkills = async (req: Request, res: Response) => {
+        let userId : any = req.query.userId
+        this._httpResponse = await this._questionService.getQuestionsForUserSkills(userId);
+        return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
+    }
+
+    getQuestionDetailsByQuestionId = async (req: Request, res: Response) => {
+        let questionId : String = req.params.questionId
+        this._httpResponse = await this._questionService.getQuestionnDetailsByQuestionId(questionId);
+        return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
+    }
+
+    updateQuestion = async(req: Request, res: Response) => {
+        this._httpResponse = await this._questionService.updateQuestion(req.params.questionId, req.body);
+        return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
+    }
 }
 
 export default new QuestionController();

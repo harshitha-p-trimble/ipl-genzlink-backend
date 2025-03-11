@@ -17,6 +17,10 @@ class UserRouter {
         this._userRouter.get('/',
             UserController.getUser
         );
+
+        this._userRouter.put('/:userId',        // request params
+            UserController.updateUser
+        );
     }
 }
 

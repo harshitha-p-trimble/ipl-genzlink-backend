@@ -19,6 +19,11 @@ class UserController {
         this._httpResponse = await this._userService.createUser(req.body);
         return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
     }
+
+    updateUser = async(req: Request, res: Response) => {
+        this._httpResponse = await this._userService.updateUser(req.params.userId, req.body);
+        return res.status(this._httpResponse.statusCode).json(this._httpResponse.data);
+    }
 }
 
 export default new UserController();

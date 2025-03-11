@@ -17,6 +17,14 @@ class ResponseRouter {
         this._responseRouter.get('/',
             ResponseController.getAllResponses
         );
+
+        this._responseRouter.get('/:questionId',
+            ResponseController.getResponsesByQuestionId
+        );
+
+        this._responseRouter.put('/:responseId',
+            ResponseController.updateComment
+        );
     }
 }
 
